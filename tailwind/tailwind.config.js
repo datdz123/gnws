@@ -17,7 +17,14 @@ module.exports = {
 			colors: {
 				primary: '#3b3663',
 				secondary: '#f47514',
-				
+				wellness: {
+					ivory: '#f8f5eb',
+					sage: '#edf5ef',
+					mint: '#36b37e',
+					leaf: '#2f7d57',
+					ink: '#28413c',
+					sand: '#e2dac6',
+				},
 			},
 			fontFamily: {
 				body: ['SVN-Poppins', 'sans-serif'],
