@@ -2,7 +2,7 @@
 /**
  * The template for displaying the footer
  *
- * @package gnws
+ * @package iheal
  */
 
 $iheal_footer_logo_url = 'https://www.figma.com/api/mcp/asset/a085a1b9-5470-461e-a0b5-0f1e9a85044c';
@@ -13,8 +13,8 @@ $iheal_footer_groups   = array(
 );
 ?>
 
-<footer class="bg-[#edf7ee] px-6 pb-10 pt-20 lg:px-10">
-	<div class="px-8">
+<footer class="bg-[#edf7ee] pb-10 pt-20">
+	<div class="container">
 		<img class="h-auto w-[154px]" src="<?php echo esc_url( $iheal_footer_logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?>">
 
 		<div class="mt-16 grid gap-12 border-b border-black/10 pb-16 lg:grid-cols-[2fr_1fr_1fr_1fr]">

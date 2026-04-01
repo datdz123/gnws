@@ -132,3 +132,7 @@ pre.wp-block-code {
 .wp-block-image.is-resized > figcaption {
     text-align: center;
 }
+
+.iheal-modal-open {
+    overflow: hidden;
+}

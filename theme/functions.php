@@ -1,13 +1,13 @@
 <?php
 /**
- * gnws functions and definitions
+ * iheal functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package gnws
+ * @package iheal
  */
 $random_ver = rand( 1, 1000000000 );
-if ( ! defined( 'GNWS_VERSION' ) ) {
+if ( ! defined( 'iheal_VERSION' ) ) {
 	/*
 	 * Set the theme’s version number.
 	 *
@@ -15,15 +15,15 @@ if ( ! defined( 'GNWS_VERSION' ) ) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define( 'GNWS_VERSION', $random_ver );
+	define( 'iheal_VERSION', $random_ver );
 }
 
-if ( ! defined( 'GNWS_TYPOGRAPHY_CLASSES' ) ) {
+if ( ! defined( 'iheal_TYPOGRAPHY_CLASSES' ) ) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
 	 *
-	 * For the front end, these classes are added by the `gnws_content_class`
+	 * For the front end, these classes are added by the `iheal_content_class`
 	 * function. You will see that function used everywhere an `entry-content`
 	 * or `page-content` class has been added to a wrapper element.
 	 *
@@ -37,12 +37,12 @@ if ( ! defined( 'GNWS_TYPOGRAPHY_CLASSES' ) ) {
 	 * initializes.
 	 */
 	define(
-		'GNWS_TYPOGRAPHY_CLASSES',
+		'iheal_TYPOGRAPHY_CLASSES',
 		'prose prose-neutral max-w-none prose-a:text-primary'
 	);
 }
 
-if ( ! function_exists( 'gnws_setup' ) ) :
+if ( ! function_exists( 'iheal_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -50,14 +50,14 @@ if ( ! function_exists( 'gnws_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function gnws_setup() {
+	function iheal_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on gnws, use a find and replace
-		 * to change 'gnws' to the name of your theme in all the template files.
+		 * If you're building a theme based on iheal, use a find and replace
+		 * to change 'iheal' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'gnws', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'iheal', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -80,8 +80,8 @@ if ( ! function_exists( 'gnws_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Menu Chính', 'gnws' ),
-				'menu-2' => __( 'Footer Menu', 'gnws' ),
+				'menu-1' => __( 'Menu Chính', 'iheal' ),
+				'menu-2' => __( 'Footer Menu', 'iheal' ),
 			)
 		);
 
@@ -133,19 +133,19 @@ if ( ! function_exists( 'gnws_setup' ) ) :
 		remove_theme_support( 'block-templates' );
 	}
 endif;
-add_action( 'after_setup_theme', 'gnws_setup' );
+add_action( 'after_setup_theme', 'iheal_setup' );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function gnws_widgets_init() {
+function iheal_widgets_init() {
 	register_sidebar(
 		array(
-			'name' => __( 'Footer', 'gnws' ),
+			'name' => __( 'Footer', 'iheal' ),
 			'id' => 'sidebar-1',
-			'description' => __( 'Add widgets here to appear in your footer.', 'gnws' ),
+			'description' => __( 'Add widgets here to appear in your footer.', 'iheal' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget' => '</section>',
 			'before_title' => '<h2 class="widget-title">',
@@ -153,35 +153,68 @@ function gnws_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'gnws_widgets_init' );
+add_action( 'widgets_init', 'iheal_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function gnws_scripts() {
+function iheal_scripts() {
 	if ( class_exists( 'WPCF7' ) ) {
-		wp_enqueue_style( 'gnws-alert', get_template_directory_uri() . '/assets/alert/css/cf7simplepopup-core.css', array(), GNWS_VERSION );
-		wp_enqueue_script( 'gnws-jquery_alert', get_template_directory_uri() . '/assets/alert/js/cf7simplepopup-core.js', array(), GNWS_VERSION, true );
-		wp_enqueue_script( 'gnws-jquery_alert_main', get_template_directory_uri() . '/assets/alert/js/sweetalert.js', array(), GNWS_VERSION, true );
+		wp_enqueue_style( 'iheal-alert', get_template_directory_uri() . '/assets/alert/css/cf7simplepopup-core.css', array(), iheal_VERSION );
+		wp_enqueue_script( 'iheal-jquery_alert', get_template_directory_uri() . '/assets/alert/js/cf7simplepopup-core.js', array(), iheal_VERSION, true );
+		wp_enqueue_script( 'iheal-jquery_alert_main', get_template_directory_uri() . '/assets/alert/js/sweetalert.js', array(), iheal_VERSION, true );
 	}
-	// wp_enqueue_style( 'gnws-fancybox', get_template_directory_uri() . '/assets/libs/jquery.fancybox.css' );
-	// wp_enqueue_style( 'gnws-css-flickity', get_template_directory_uri() . '/assets/libs/flickity.min.css' );
-	wp_enqueue_style( 'gnws-css-font', get_template_directory_uri() . '/assets/fonts/font.css' );
-	wp_enqueue_style( 'gnws-style', get_stylesheet_uri(), array(), GNWS_VERSION );
+	// wp_enqueue_style( 'iheal-fancybox', get_template_directory_uri() . '/assets/libs/jquery.fancybox.css' );
+	// wp_enqueue_style( 'iheal-css-flickity', get_template_directory_uri() . '/assets/libs/flickity.min.css' );
+	wp_enqueue_style( 'iheal-css-font', get_template_directory_uri() . '/assets/fonts/font.css' );
+	wp_enqueue_style( 'iheal-style', get_stylesheet_uri(), array(), iheal_VERSION );
 
 	// //JS
 	 wp_enqueue_script('jquery' );
-	// wp_enqueue_script( 'gnws-js-flickity', get_template_directory_uri() . '/assets/libs/flickity.pkgd.js', array(), GNWS_VERSION, true );
-	// wp_enqueue_script( 'gnws-js-fancybox', get_template_directory_uri() . '/assets/libs/jquery.fancybox.js', array(), GNWS_VERSION, true );
-	wp_enqueue_script( 'gnws-script', get_template_directory_uri() . '/js/script.min.js', array(), GNWS_VERSION, true );
+	// wp_enqueue_script( 'iheal-js-flickity', get_template_directory_uri() . '/assets/libs/flickity.pkgd.js', array(), iheal_VERSION, true );
+	// wp_enqueue_script( 'iheal-js-fancybox', get_template_directory_uri() . '/assets/libs/jquery.fancybox.js', array(), iheal_VERSION, true );
+	wp_enqueue_script( 'iheal-script', get_template_directory_uri() . '/js/script.min.js', array(), iheal_VERSION, true );
+	wp_enqueue_script( 'iheal-header', get_template_directory_uri() . '/js/iheal-header.js', array( 'jquery' ), iheal_VERSION, true );
+	if ( class_exists( 'WooCommerce' ) ) {
+		wp_enqueue_script( 'iheal-cart', get_template_directory_uri() . '/js/iheal-cart.js', array( 'jquery' ), iheal_VERSION, true );
+	}
 
-	wp_localize_script( 'gnws-script', 'ajaxurl', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+	wp_localize_script( 'iheal-script', 'ajaxurl', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'gnws_scripts' );
+add_action( 'wp_enqueue_scripts', 'iheal_scripts' );
+
+if ( class_exists( 'WooCommerce' ) ) {
+	/**
+	 * Update cart fragments for the header counter and mini-cart.
+	 *
+	 * @param array $fragments Cart fragments.
+	 * @return array
+	 */
+	function iheal_woo_cart_fragments( $fragments ) {
+		ob_start();
+		?>
+		<span class="iheal-cart-count js-iheal-cart-count">
+			<?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?>
+		</span>
+		<?php
+		$fragments['span.js-iheal-cart-count'] = ob_get_clean();
+
+		ob_start();
+		?>
+		<div class="iheal-mini-cart">
+			<?php woocommerce_mini_cart(); ?>
+		</div>
+		<?php
+		$fragments['div.iheal-mini-cart'] = ob_get_clean();
+
+		return $fragments;
+	}
+	add_filter( 'woocommerce_add_to_cart_fragments', 'iheal_woo_cart_fragments' );
+}
 
 
 /**
@@ -190,11 +223,11 @@ add_action( 'wp_enqueue_scripts', 'gnws_scripts' );
  * @param array $settings TinyMCE settings.
  * @return array
  */
-function gnws_tinymce_add_class( $settings ) {
-	$settings['body_class'] = GNWS_TYPOGRAPHY_CLASSES;
+function iheal_tinymce_add_class( $settings ) {
+	$settings['body_class'] = iheal_TYPOGRAPHY_CLASSES;
 	return $settings;
 }
-add_filter( 'tiny_mce_before_init', 'gnws_tinymce_add_class' );
+add_filter( 'tiny_mce_before_init', 'iheal_tinymce_add_class' );
 
 /**
  * Functions which enhance the theme by hooking into WordPress.

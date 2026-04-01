@@ -2,7 +2,7 @@
 /**
  * Template Name: Frame 7
  *
- * @package gnws
+ * @package iheal
  */
 
 $iheal_product_categories = array(
@@ -128,85 +128,94 @@ get_header();
 <main class="bg-[linear-gradient(180deg,#edf7ee_0%,#ffffff_10.453%)] font-body text-[#10241a]">
 	<h1 class="sr-only"><?php echo esc_html( get_the_title() ); ?></h1>
 
-	<section class="w-full px-4 pb-16 pt-9 md:px-8 lg:px-12">
-		<div class="flex flex-wrap gap-3">
+	<section class="w-full pb-16 pt-9">
+		<div class="container">
+			<div class="flex flex-wrap gap-3">
 			<?php foreach ( $iheal_product_categories as $category_index => $category_name ) : ?>
 				<span class="inline-flex items-center rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-[#10241a] shadow-[0_8px_20px_rgba(16,36,26,0.04)]">
 					<?php echo esc_html( $category_name ); ?>
 				</span>
 			<?php endforeach; ?>
-		</div>
-
-		<div class="mt-7 grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(320px,712px)] xl:items-end">
-			<div class="max-w-[640px]">
-				<div class="inline-flex items-center rounded-xl bg-[#e8f7ea] px-4 py-2 text-[13px] font-semibold text-[#0f2a18]">
-					<span class="mr-2 text-xs text-[#2ea36a]">◉</span>
-					Curated wellness essentials
-				</div>
-				<h2 class="mt-4 text-[38px] font-bold leading-[1.08] tracking-[-0.03em] text-[#10241a] lg:text-[42px]">
-					Shop All Products
-				</h2>
-				<p class="mt-4 text-base leading-6 text-[#6b6b6b] lg:max-w-[600px]">
-					Find the right products for your healthy lifestyle with clean formulas, targeted benefits, and easy bundle savings across immunity, brain, joints, skin, liver, and superfood support.
-				</p>
 			</div>
 
-			<div class="grid gap-3 md:grid-cols-3">
-				<?php foreach ( $iheal_product_stats as $stat_item ) : ?>
-					<div class="rounded-lg border border-black/10 bg-white px-5 py-4 shadow-[0_10px_24px_rgba(16,36,26,0.05)]">
-						<p class="text-[13px] leading-5 text-[#6b6b6b]"><?php echo esc_html( $stat_item['label'] ); ?></p>
-						<p class="mt-1 text-[22px] font-bold leading-[1.5] text-[#10241a]"><?php echo esc_html( $stat_item['value'] ); ?></p>
+			<div class="mt-7 grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(320px,712px)] xl:items-end">
+				<div class="max-w-[640px]">
+					<div class="inline-flex items-center rounded-xl bg-[#e8f7ea] px-4 py-2 text-[13px] font-semibold text-[#0f2a18]">
+						<span class="mr-2 text-xs text-[#2ea36a]">◉</span>
+						Curated wellness essentials
 					</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
-
-		<section class="mt-7 rounded-lg border border-black/10 bg-[linear-gradient(134.83deg,#e8f7ea_0%,#edf7ee_100%)] p-6 shadow-[0_14px_32px_rgba(16,36,26,0.05)]">
-			<div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_426px] xl:items-center">
-				<div>
-					<div class="inline-flex rounded-xl bg-white px-3 py-2 text-[13px] font-bold leading-5 text-[#2ea36a]">
-						Mix &amp; Save
-					</div>
-					<h2 class="mt-4 text-[28px] font-bold leading-[1.15] tracking-[-0.02em] text-[#10241a]">
-						Why Not Choose a Better Way to Save for Your Health?
+					<h2 class="mt-4 text-[38px] font-bold leading-[1.08] tracking-[-0.03em] text-[#10241a] lg:text-[42px]">
+						Shop All Products
 					</h2>
-					<p class="mt-3 max-w-[640px] text-sm leading-6 text-[#6b6b6b]">
-						Build your own wellness routine with complementary products for immunity, recovery, and daily vitality. Get clear savings automatically when you bundle.
+					<p class="mt-4 text-base leading-6 text-[#6b6b6b] lg:max-w-[600px]">
+						Find the right products for your healthy lifestyle with clean formulas, targeted benefits, and easy bundle savings across immunity, brain, joints, skin, liver, and superfood support.
 					</p>
 				</div>
 
-				<div class="grid gap-3">
-					<div class="rounded-lg bg-white px-6 py-5 text-center shadow-[0_10px_24px_rgba(16,36,26,0.05)]">
-						<p class="text-xs font-medium text-[#9a9a9a]">Bundle discount</p>
-						<p class="mt-1 text-[20px] font-bold text-[#2ea36a] lg:text-[22px]">Save up to 20%</p>
-					</div>
-					<a class="inline-flex min-h-[49px] items-center justify-center rounded-lg bg-[#2ea36a] px-8 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(46,163,106,0.22)] transition hover:bg-[#238453]" href="#">
-						Build Your Bundle
-					</a>
+				<div class="grid gap-3 md:grid-cols-3">
+					<?php foreach ( $iheal_product_stats as $stat_item ) : ?>
+						<div class="rounded-lg border border-black/10 bg-white px-5 py-4 shadow-[0_10px_24px_rgba(16,36,26,0.05)]">
+							<p class="text-[13px] leading-5 text-[#6b6b6b]"><?php echo esc_html( $stat_item['label'] ); ?></p>
+							<p class="mt-1 text-[22px] font-bold leading-[1.5] text-[#10241a]"><?php echo esc_html( $stat_item['value'] ); ?></p>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
-		</section>
 
-		<section class="mt-10">
-			<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-				<h2 class="text-[28px] font-bold leading-[1.15] tracking-[-0.02em] text-[#10241a]">
-					Best picks in Immunity
-				</h2>
-				<p class="text-sm text-[#8b8b8b]">Showing 8 of 24 products</p>
-			</div>
+			<section class="mt-7 rounded-lg border border-black/10 bg-[linear-gradient(134.83deg,#e8f7ea_0%,#edf7ee_100%)] p-6 shadow-[0_14px_32px_rgba(16,36,26,0.05)]">
+				<div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_426px] xl:items-center">
+					<div>
+						<div class="inline-flex rounded-xl bg-white px-3 py-2 text-[13px] font-bold leading-5 text-[#2ea36a]">
+							Mix &amp; Save
+						</div>
+						<h2 class="mt-4 text-[28px] font-bold leading-[1.15] tracking-[-0.02em] text-[#10241a]">
+							Why Not Choose a Better Way to Save for Your Health?
+						</h2>
+						<p class="mt-3 max-w-[640px] text-sm leading-6 text-[#6b6b6b]">
+							Build your own wellness routine with complementary products for immunity, recovery, and daily vitality. Get clear savings automatically when you bundle.
+						</p>
+					</div>
 
-			<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-				<?php
-				$args = array(
-					'post_type'      => 'product',
-					'posts_per_page' => 10,
-					'post_status'    => 'publish',
-				);
-				$loop = new WP_Query( $args );
+					<div class="grid gap-3">
+						<div class="rounded-lg bg-white px-6 py-5 text-center shadow-[0_10px_24px_rgba(16,36,26,0.05)]">
+							<p class="text-xs font-medium text-[#9a9a9a]">Bundle discount</p>
+							<p class="mt-1 text-[20px] font-bold text-[#2ea36a] lg:text-[22px]">Save up to 20%</p>
+						</div>
+						<a class="inline-flex min-h-[49px] items-center justify-center rounded-lg bg-[#2ea36a] px-8 py-3 text-sm font-semibold text-white shadow-[0_12px_24px_rgba(46,163,106,0.22)] transition hover:bg-[#238453]" href="#">
+							Build Your Bundle
+						</a>
+					</div>
+				</div>
+			</section>
 
-				if ( $loop->have_posts() ) :
-					while ( $loop->have_posts() ) : $loop->the_post();
-						global $product;
+			<section class="mt-10">
+				<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+					<h2 class="text-[28px] font-bold leading-[1.15] tracking-[-0.02em] text-[#10241a]">
+						Best picks in Immunity
+					</h2>
+					<p class="text-sm text-[#8b8b8b]">Showing 8 of 24 products</p>
+				</div>
+
+				<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+					<?php
+					if ( ! function_exists( 'wc_get_product' ) ) :
+						?>
+						<p class="text-sm text-[#6b6b6b]">WooCommerce is not active.</p>
+						<?php
+					else :
+						$args = array(
+							'post_type'      => 'product',
+							'posts_per_page' => 10,
+							'post_status'    => 'publish',
+						);
+						$loop = new WP_Query( $args );
+
+						if ( $loop->have_posts() ) :
+							while ( $loop->have_posts() ) : $loop->the_post();
+								$product = wc_get_product( get_the_ID() );
+								if ( ! $product ) {
+									continue;
+								}
 
 						$product_name = get_the_title();
 						$product_price = $product->get_price_html();
@@ -255,24 +264,26 @@ get_header();
 								</div>
 							</div>
 
-							<a class="mt-4 inline-flex min-h-[49px] items-center justify-center rounded-lg bg-[#2ea36a] px-[18px] py-[14px] text-[14px] font-semibold text-white shadow-[0_12px_24px_rgba(46,163,106,0.22)] transition hover:bg-[#238453]" href="?add-to-cart=<?php echo esc_attr( get_the_ID() ); ?>">
+							<a class="mt-4 inline-flex min-h-[49px] items-center justify-center rounded-lg bg-[#2ea36a] px-[18px] py-[14px] text-[14px] font-semibold text-white shadow-[0_12px_24px_rgba(46,163,106,0.22)] transition hover:bg-[#238453] add_to_cart_button ajax_add_to_cart" href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" data-product_id="<?php echo esc_attr( $product->get_id() ); ?>" data-product_sku="<?php echo esc_attr( $product->get_sku() ); ?>" data-quantity="1" aria-label="<?php echo esc_attr( $product_name ); ?>">
 								Add to Cart
 							</a>
 						</div>
 					</article>
 				<?php 
-					endwhile;
-					wp_reset_postdata();
-				endif; 
+						endwhile;
+						wp_reset_postdata();
+					endif;
+				endif;
 				?>
-			</div>
+				</div>
 
-			<div class="flex justify-center pt-8">
-				<a class="inline-flex min-h-[59px] items-center justify-center rounded-lg border border-black/10 bg-white px-10 py-4 text-sm font-semibold text-[#10241a]" href="#">
-					Load More Products
-				</a>
-			</div>
-		</section>
+				<div class="flex justify-center pt-8">
+					<a class="inline-flex min-h-[59px] items-center justify-center rounded-lg border border-black/10 bg-white px-10 py-4 text-sm font-semibold text-[#10241a]" href="#">
+						Load More Products
+					</a>
+				</div>
+			</section>
+		</div>
 	</section>
 </main>
 
